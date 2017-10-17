@@ -6,6 +6,6 @@ describe('List.vue', () => {
     const Constructor = Vue.extend(List)
     const vm = new Constructor().$mount()
 
-    expect(vm.$el.querySelectorAll('ul').length).to.equal(1)
+    expect(vm.$el.querySelectorAll('.data-table').length).to.equal(1)
   })
 })
