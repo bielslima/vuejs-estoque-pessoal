@@ -1,9 +1,9 @@
 <template>
   <div>
     <nav class="navbar">
-      <a href="#" class="navbar__item navbar__item--active">itens</a>
-      <a href="#" class="navbar__item">adicionar</a>
-      <a href="#" class="navbar__item">sobre</a>
+      <router-link :to="{ name: 'list' }" class="navbar__item">itens</router-link>
+      <router-link :to="{ name: 'form' }" class="navbar__item">adicionar</router-link>
+      <router-link :to="{ name: 'about' }" class="navbar__item">sobre</router-link>
     </nav>
   </div>
 </template>
@@ -17,7 +17,7 @@ export default {
 <style scoped>
 .navbar {
   width: 75%;
-  margin: 0 auto;
+  margin: 0 auto 5rem auto;
   display: flex;
   justify-content: space-around;
 }
