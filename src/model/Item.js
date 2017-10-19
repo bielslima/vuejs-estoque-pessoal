@@ -20,7 +20,7 @@ export default class Item {
   }
 
   get () {
-    return this._item
+    return { ...this._item }
   }
 
   toString () {
