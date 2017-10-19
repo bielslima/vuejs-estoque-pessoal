@@ -7,8 +7,8 @@
 </template>
 
 <script>
-import AppHeader from './components/AppHeader.vue'
-import AppNavbar from './components/AppNavbar.vue'
+import AppHeader from './components/AppHeader'
+import AppNavbar from './components/AppNavbar'
 
 export default {
   name: 'app',
