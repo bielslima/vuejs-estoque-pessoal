@@ -1,6 +1,7 @@
 export default class Item {
-  constructor () {
+  constructor (id) {
     this._item = {
+      _id: id,
       name: '',
       amount: 0,
       expiration: null

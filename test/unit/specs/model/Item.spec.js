@@ -2,6 +2,7 @@ import { assert } from 'chai'
 import Item from '@/model/Item'
 
 const result = {
+  _id: undefined,
   name: 'Sabonete',
   amount: 4,
   expiration: null
