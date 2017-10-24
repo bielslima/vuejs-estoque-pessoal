@@ -1,4 +1,4 @@
-export default class Item {
+export default class ItemModel {
   constructor (id) {
     this._item = {
       _id: id,

@@ -1,5 +1,5 @@
 import { assert } from 'chai'
-import Item from '@/model/Item'
+import ItemModel from '@/model/ItemModel'
 
 const result = {
   _id: undefined,
@@ -9,7 +9,7 @@ const result = {
 }
 
 const construct = () => {
-  const item = new Item()
+  const item = new ItemModel()
 
   item.name = result.name
   item.amount = result.amount
@@ -18,7 +18,7 @@ const construct = () => {
   return item
 }
 
-describe('Item get()', () => {
+describe('ItemModel get()', () => {
   let item
 
   beforeEach(() => { item = construct() })
@@ -32,7 +32,7 @@ describe('Item get()', () => {
   })
 })
 
-describe('Item toString()', () => {
+describe('ItemModel toString()', () => {
   it('deve retornar uma string do objeto', () => {
     const item = construct()
     assert.strictEqual(item.toString(), JSON.stringify(result))
