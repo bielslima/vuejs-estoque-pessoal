@@ -29,6 +29,13 @@ function updateItem (item) {
   return item
 }
 
+function removeItem (item) {
+  const items = getItems()
+  const filteredItems = items.filter(itm => itm._id !== item._id)
+
+  localStorage.setItem(KEY, JSON.stringify(filteredItems))
+}
+
 // Exportando só o que interessa
 
 export default class ItemService {
@@ -42,5 +49,9 @@ export default class ItemService {
 
   update (item) {
     return updateItem(item)
+  }
+
+  remove (item) {
+    return removeItem(item)
   }
 }

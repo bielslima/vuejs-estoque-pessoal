@@ -36,4 +36,12 @@ describe('ItemService', () => {
     const item = construct().get()
     assert.deepEqual(service.update(item), result)
   })
+
+  it('remove() deve excluir o item', () => {
+    const service = new ItemService()
+    const item = construct().get()
+
+    service.remove(item)
+    assert.lengthOf(service.get(), 0)
+  })
 })

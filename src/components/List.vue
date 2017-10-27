@@ -12,7 +12,11 @@
         <tr class="data-table__row" v-for="item of items" :key="item._id">
           <td class="data-table__item-name">
             {{ item.name }}
-            <a class="data-table__edit-row" href="#">Editar</a>
+
+            <div class="data-table__actions">
+              <!--<a class="data-table__edit-row" href="#">Editar</a>-->
+              <a class="data-table__remove-row" href="#" @click.prevent="remove(item)">Excluir</a>
+            </div>
           </td>
           <td>
             <amount-counter @increment="increment(item)" @decrement="decrement(item)">
@@ -55,6 +59,11 @@ export default {
 
     decrement (item) {
       this.$store.dispatch('decrementAmount', item)
+    },
+
+    remove (item) {
+      this.$store.dispatch('removeItem', item)
+      this.items = this.$store.state.items
     }
   }
 }
@@ -78,7 +87,11 @@ export default {
 
   .data-table__row {
     margin: 3rem 0;
+    position: relative;
   }
+    .data-table__row:hover .data-table__actions {
+      display: block;
+    }
 
   .data-table__item-name {
     position: relative;
@@ -86,14 +99,22 @@ export default {
     padding: 3rem 0;
   }
 
-  .data-table__edit-row {
+  .data-table__actions {
+    display: none;
+    position: absolute;
+    bottom: 10px;
+  }
+
+  .data-table__edit-row,
+  .data-table__remove-row {
     color: #999;
     font-size: 0.875rem;
     text-transform: uppercase;
     text-decoration: none;
-    position: absolute;
-    top: 10px;
-    left: 0;
-    display: none;
   }
+    .data-table__edit-row:hover,
+    .data-table__remove-row:hover {
+      color: #333;
+      text-decoration: underline;
+    }
 </style>

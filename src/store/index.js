@@ -22,6 +22,10 @@ const store = new Vuex.Store({
 
     getItems (store, payload) {
       store.items = payload
+    },
+
+    removeItem (store, payload) {
+      store.items = store.items.filter(itm => itm._id !== payload._id)
     }
   },
 
@@ -52,6 +56,11 @@ const store = new Vuex.Store({
       payload.amount -= 1
       service.update(payload)
       commit('changeAmount', payload)
+    },
+
+    removeItem ({ commit }, payload) {
+      service.remove(payload)
+      commit('removeItem', payload)
     }
   }
 })
