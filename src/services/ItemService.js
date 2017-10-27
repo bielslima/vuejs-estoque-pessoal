@@ -2,12 +2,14 @@
 const KEY = '__jrr_estoque_pessoal__'
 
 function getItems () {
-  let items = localStorage.getItem(KEY)
-  return JSON.parse(items)
+  let items = JSON.parse(localStorage.getItem(KEY))
+
+  if (!items) return []
+  return items
 }
 
 function setItem (item) {
-  let items = nullToArray(getItems())
+  let items = getItems()
 
   items.push(item.get())
   localStorage.setItem(KEY, JSON.stringify(items))
@@ -16,28 +18,22 @@ function setItem (item) {
 }
 
 function updateItem (item) {
-  let items = nullToArray(getItems())
-
-  items.forEach(itm => {
-    if (itm._id === item._id) {
-      itm = item.get()
-    }
+  const items = getItems()
+  const updatedItems = items.map(itm => {
+    if (itm._id === item._id) itm = item
+    return itm
   })
 
-  localStorage.setItem(KEY, JSON.stringify(items))
+  localStorage.setItem(KEY, JSON.stringify(updatedItems))
 
-  return item.get()
-}
-
-function nullToArray (items) {
-  return items || []
+  return item
 }
 
 // Exportando só o que interessa
 
 export default class ItemService {
   get () {
-    return nullToArray(getItems())
+    return getItems()
   }
 
   save (item) {

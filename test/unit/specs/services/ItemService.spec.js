@@ -33,7 +33,7 @@ describe('ItemService', () => {
 
   it('update() deve retornar o item atualizado', () => {
     const service = new ItemService()
-    const item = construct()
+    const item = construct().get()
     assert.deepEqual(service.update(item), result)
   })
 })

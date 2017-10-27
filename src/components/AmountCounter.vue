@@ -1,14 +1,24 @@
 <template>
   <div class="amount-counter">
-    <button class="amount-counter__decrement">-</button>
-    <span class="amount-counter__value">4</span>
-    <button class="amount-counter__increment">+</button>
+    <button class="amount-counter__decrement" @click="decrement">-</button>
+    <span class="amount-counter__value">
+      <slot></slot>
+    </span>
+    <button class="amount-counter__increment" @click="increment">+</button>
   </div>
 </template>
 
 <script>
 export default {
+  methods: {
+    increment () {
+      this.$emit('increment')
+    },
 
+    decrement () {
+      this.$emit('decrement')
+    }
+  }
 }
 </script>
 

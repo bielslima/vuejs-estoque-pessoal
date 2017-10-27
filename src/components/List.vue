@@ -9,29 +9,18 @@
         </tr>
       </thead>
       <tbody class="data-table__body">
-        <tr class="data-table__row">
+        <tr class="data-table__row" v-for="item of items" :key="item._id">
           <td class="data-table__item-name">
-            Sabonetes 
-            <a class="data-table__edit-row" href="#" aria-hidden="true">Editar</a>
+            {{ item.name }}
+            <a class="data-table__edit-row" href="#">Editar</a>
           </td>
           <td>
-            <amount-counter></amount-counter>
+            <amount-counter @increment="increment(item)" @decrement="decrement(item)">
+              {{ item.amount }}
+            </amount-counter>
           </td>
           <td>
-            <expiration-date />
-          </td>
-        </tr>
-
-        <tr class="data-table__row">
-          <td class="data-table__item-name">
-            Caixa de leite 
-            <a class="data-table__edit-row" href="#" aria-hidden="true">Editar</a>
-          </td>
-          <td>
-            <amount-counter></amount-counter>
-          </td>
-          <td>
-            <expiration-date>20/12/2017</expiration-date>
+            <expiration-date :date="item.expiration" />
           </td>
         </tr>
       </tbody>
@@ -40,12 +29,33 @@
 </template>
 
 <script>
-import AmountCounter from './AmountCounter.vue'
-import ExpirationDate from './ExpirationDate.vue'
+import AmountCounter from './AmountCounter'
+import ExpirationDate from './ExpirationDate'
 
 export default {
   components: {
     AmountCounter, ExpirationDate
+  },
+
+  data () {
+    return {
+      items: []
+    }
+  },
+
+  created () {
+    this.$store.dispatch('getItems')
+    this.items = this.$store.state.items
+  },
+
+  methods: {
+    increment (item) {
+      this.$store.dispatch('incrementAmount', item)
+    },
+
+    decrement (item) {
+      this.$store.dispatch('decrementAmount', item)
+    }
   }
 }
 </script>

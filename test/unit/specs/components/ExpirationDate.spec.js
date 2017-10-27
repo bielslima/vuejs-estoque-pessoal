@@ -6,6 +6,6 @@ describe('ExpirationDate.vue', () => {
     const Constructor = Vue.extend(ExpirationDate)
     const vm = new Constructor().$mount()
 
-    expect(vm.$el.querySelectorAll('span').length).to.equal(1)
+    expect(vm.$el.querySelectorAll('p').length).to.equal(1)
   })
 })

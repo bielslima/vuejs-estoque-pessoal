@@ -1,13 +1,14 @@
 <template>
   <div class="expiration-date">
-    <slot>
-      <span class="expiration-date__null" v-show="!date">nenhuma</span>
-    </slot>
+    <p class="expiration-date__content">
+      <span class="expiration-date__null" v-show="!date">nenhuma</span> {{ date }}
+    </p>
   </div>
 </template>
 
 <script>
 export default {
+  props: ['date']
 }
 </script>
 

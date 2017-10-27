@@ -1,19 +1,19 @@
 <template>
   <div>
-    <form class="form">
+    <form class="form" @submit.prevent="save">
       <div>
         <label class="form__label" for="item">Item</label>
-        <input class="form__input" type="text" name="item" id="item">
+        <input class="form__input" type="text" name="item" id="item" v-model="item.name">
       </div>
 
       <div>
         <label class="form__label" for="amount">Quantidade</label>
-        <input class="form__input" type="number" min="1" name="amount" id="amount">
+        <input class="form__input" type="number" min="1" name="amount" id="amount" v-model="item.amount">
       </div>
 
       <div>
         <label class="form__label" for="expiration">Data de expiração</label>
-        <input class="form__input" type="date" name="expiration" id="expiration">
+        <input class="form__input" type="text" name="expiration" id="expiration" v-model="item.expiration">
       </div>
 
       <button class="form__button" type="submit">Enviar</button>
@@ -22,8 +22,34 @@
 </template>
 
 <script>
-export default {
+// import { stringToDate } from '../utils/date'
 
+export default {
+  data () {
+    return {
+      item: {
+        name: '',
+        amount: 1,
+        expiration: null
+      }
+    }
+  },
+
+  methods: {
+    save () {
+      const payload = {}
+
+      payload.name = this.item.name
+      payload.amount = parseInt(this.item.amount)
+      payload.expiration = this.item.expiration
+
+      this.item.name = ''
+      this.item.amount = ''
+      this.item.expiration = ''
+
+      this.$store.dispatch('saveItem', payload)
+    }
+  }
 }
 </script>
 

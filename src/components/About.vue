@@ -8,7 +8,7 @@
       <p>Se for útil é um plus...</p>
 
       <p>
-        O app não sincroniza com nenhum tipo de servidor, todas as informações ficam armazenadas no prórpio navegador.
+        O app não sincroniza com nenhum servidor. Todas as informações ficam armazenadas no prórpio navegador.
       </p>
     </article>
   </div>
