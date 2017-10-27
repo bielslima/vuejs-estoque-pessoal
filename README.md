@@ -1,24 +1,4 @@
 # Estoque pessoal
 ## Praticando Vue.js
 
-App de controle de estoque pessoal para praticar Vue.js
-
-``` bash
-# install dependencies
-npm install
-
-# serve with hot reload at localhost:8080
-npm run dev
-
-# build for production with minification
-npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
-
-# run unit tests
-npm run unit
-
-# run all tests
-npm test
-```
+App de controle de estoque pessoal para praticar Vue.js. [Demo online](http://joaorigotti.com/labs/vue-estoque-pessoal/#/)
