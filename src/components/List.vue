@@ -69,52 +69,56 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+@import '../assets/styles/vars.scss';
+
 .data-table {
   width: 100%;
-  color: #444;
+  color: $text-color;
   border-collapse: collapse;
-}
-  .data-table .data-table__header-title {
+
+  &__header-title {
     text-transform: uppercase;
-    border-bottom: 1px solid #f2f2f2;
+    border-bottom: 1px solid $light-gray;
     padding: 0.5rem 0;
   }
 
-  .data-table__body {
+  &__body {
     font-size: 1.3125rem;
   }
 
-  .data-table__row {
+  &__row {
     margin: 3rem 0;
     position: relative;
-  }
-    .data-table__row:hover .data-table__actions {
+    
+    &:hover .data-table__actions {
       display: block;
     }
+  }
 
-  .data-table__item-name {
+  &__item-name {
     position: relative;
     text-align: left;
     padding: 3rem 0;
   }
 
-  .data-table__actions {
+  &__actions {
     display: none;
     position: absolute;
     bottom: 10px;
   }
 
-  .data-table__edit-row,
-  .data-table__remove-row {
-    color: #999;
+  &__edit-row,
+  &__remove-row {
+    color: $gray;
     font-size: 0.875rem;
     text-transform: uppercase;
     text-decoration: none;
-  }
-    .data-table__edit-row:hover,
-    .data-table__remove-row:hover {
-      color: #333;
+  
+    &:hover {
+      color: $text-color;
       text-decoration: underline;
     }
+  }
+}
 </style>

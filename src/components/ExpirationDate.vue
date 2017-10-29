@@ -12,8 +12,10 @@ export default {
 }
 </script>
 
-<style scoped>
-  .expiration-date__null {
-    color: #ccc;
-  }
+<style lang="scss" scoped>
+@import '../assets/styles/vars.scss';
+
+.expiration-date__null {
+  color: $gray;
+}
 </style>

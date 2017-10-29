@@ -10,21 +10,25 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+@import '../assets/styles/vars.scss';
+
 .header {
   margin-bottom: 3rem;
-}
-.header::after {
-  content: '';
-  display: block;
-  margin: 0 auto;
-  width: 200px;
-  height: 1px;
-  background: #e6e6e6;
-}
-  .header .header__title {
+  
+  &::after {
+    content: '';
+    display: block;
+    margin: 0 auto;
+    width: 200px;
+    height: 1px;
+    background: $light-gray;
+  }
+
+  &__title {
     font-size: 3.75rem;
     font-weight: normal;
-    padding: 0.5em;
+    padding: 2rem;
   }
+}
 </style>

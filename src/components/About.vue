@@ -20,16 +20,18 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+@import '../assets/styles/vars.scss';
+
 article {
   width: 80%;
   margin: 0 auto;
-}
 
-p {
-  color: #444;
-  font-size: 1.2rem;
-  text-align: left;
-  margin-bottom: 1.4rem;
+  p {
+    color: $text-color;
+    font-size: 1.25rem;
+    text-align: left;
+    margin-bottom: 1.4rem;
+  }
 }
 </style>

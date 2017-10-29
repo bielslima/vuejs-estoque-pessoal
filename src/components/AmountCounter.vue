@@ -22,25 +22,28 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+@import '../assets/styles/vars.scss';
+
 .amount-counter {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-  .amount-counter__value {
+
+  &__value {
     font-size: 3.75rem;
     min-width: 140px;
-    border-bottom: 1px solid #f2f2f2;
+    border-bottom: 1px solid $light-gray;
     padding: 1rem 0;
   }
 
-  .amount-counter__increment,
-  .amount-counter__decrement {
+  &__increment,
+  &__decrement {
     cursor: pointer;
     display: block;
     border: none;
     background: transparent;
     font-size: 2.5rem;
   }
+}
 </style>

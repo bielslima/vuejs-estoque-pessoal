@@ -58,47 +58,50 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+@import '../assets/styles/vars.scss';
+
 .form {
   width: 50%;
   margin: 0 auto;
-}
 
-  .form .form__label {
+  &__label {
     text-transform: uppercase;
     display: block;
     text-align: left;
-    color: #444;
+    color: $text-color;
     margin: 2rem 0 0.5rem 0;
   }
 
-  .form .form__input {
+  &__input {
     width: 100%;
-    background: #fff;
+    background: $white;
     border: none;
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid $light-gray;
     padding: 0.7rem;
     transition: border 0.2s ease-in-out;
     font-size: 1rem;
-    color: #666;
-  }
-    .form .form__input:hover,
-    .form .form__input:focus {
-      border-bottom-color: #999;
+    color: $gray;
+
+    &:hover,
+    &:focus {
+      border-bottom-color: $gray;
       outline: none;
     }
+  }
 
-  .form .form__button {
-    font-family: 'Poiret One', cursive;
+  &__button {
+    font-family: $font-family;
     font-size: 1.5rem;
     text-transform: uppercase;
-    background: #754c24;
+    background: $brand-color;
     border: none;
-    color: #fff;
+    color: $white;
     cursor: pointer;
     padding: 0.8rem 4rem;
     border-radius: 2px;
-    box-shadow: 0 20px 60px #ccc;
+    box-shadow: 0 20px 60px $gray;
     margin-top: 3rem;
   }
+}
 </style>

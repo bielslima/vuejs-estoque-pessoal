@@ -18,8 +18,9 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
 @import url('https://fonts.googleapis.com/css?family=Poiret+One');
+@import './assets/styles/vars.scss';
 
 * {
   margin: 0;
@@ -28,7 +29,7 @@ export default {
 }
 
 :root {
-  font-family: 'Poiret One', cursive;
+  font-family: $font-family;
   font-size: 100%;
   font-weight: normal;
 }
@@ -40,6 +41,6 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #754c24;
+  color: $brand-color;
 }
 </style>
