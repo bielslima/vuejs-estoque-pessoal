@@ -48,21 +48,21 @@ export default {
   },
 
   created () {
-    this.$store.dispatch('getItems')
+    this.$store.dispatch('getItemsAction')
     this.items = this.$store.state.items
   },
 
   methods: {
     increment (item) {
-      this.$store.dispatch('incrementAmount', item)
+      this.$store.dispatch('incrementAmountAction', item)
     },
 
     decrement (item) {
-      this.$store.dispatch('decrementAmount', item)
+      this.$store.dispatch('decrementAmountAction', item)
     },
 
     remove (item) {
-      this.$store.dispatch('removeItem', item)
+      this.$store.dispatch('removeItemAction', item)
       this.items = this.$store.state.items
     }
   }

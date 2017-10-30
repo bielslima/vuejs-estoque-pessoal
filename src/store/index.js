@@ -1,67 +1,34 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import ItemModel from '../model/ItemModel'
-import ItemService from '../services/ItemService'
+import { changeAmount, getItems, removeItem } from './mutations'
+import {
+  decrementAmountAction,
+  getItemsAction,
+  incrementAmountAction,
+  removeItemAction,
+  saveItemAction
+} from './actions'
 
 Vue.use(Vuex)
 
-const service = new ItemService()
+const state = {
+  items: []
+}
+
 const store = new Vuex.Store({
-  state: {
-    items: []
-  },
-
+  state,
   mutations: {
-    changeAmount (store, payload) {
-      store.items.forEach(item => {
-        if (item._id === payload._id) {
-          item.amount = payload.amount
-        }
-      })
-    },
-
-    getItems (store, payload) {
-      store.items = payload
-    },
-
-    removeItem (store, payload) {
-      store.items = store.items.filter(itm => itm._id !== payload._id)
-    }
+    changeAmount,
+    getItems,
+    removeItem
   },
 
   actions: {
-    getItems ({ commit }) {
-      const service = new ItemService()
-      commit('getItems', service.get())
-    },
-
-    saveItem ({ commit }, payload) {
-      const id = new Date().getTime()
-      const item = new ItemModel(id)
-
-      item.name = payload.name
-      item.amount = payload.amount
-      item.expiration = payload.expiration
-
-      service.save(item)
-    },
-
-    incrementAmount ({ commit }, payload) {
-      payload.amount += 1
-      service.update(payload)
-      commit('changeAmount', payload)
-    },
-
-    decrementAmount ({ commit }, payload) {
-      payload.amount -= 1
-      service.update(payload)
-      commit('changeAmount', payload)
-    },
-
-    removeItem ({ commit }, payload) {
-      service.remove(payload)
-      commit('removeItem', payload)
-    }
+    getItemsAction,
+    saveItemAction,
+    incrementAmountAction,
+    decrementAmountAction,
+    removeItemAction
   }
 })
 

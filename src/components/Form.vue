@@ -52,7 +52,7 @@ export default {
       this.item.expiration = ''
 
       this.$refs.item.focus()
-      this.$store.dispatch('saveItem', payload)
+      this.$store.dispatch('saveItemAction', payload)
     }
   }
 }
