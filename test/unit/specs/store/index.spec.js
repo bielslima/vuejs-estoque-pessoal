@@ -2,13 +2,17 @@ import { expect } from 'chai'
 import { changeAmount, getItems, removeItem } from '@/store/mutations'
 
 describe('Store mutations', () => {
-  it('changeAmount() deve alterar corretamente a quantidade do item', () => {
-    const item = {
+  let item = {}
+  beforeEach(() => {
+    item = {
       _id: 1,
       name: 'Sabonetes',
       amount: 1,
       expiration: null
     }
+  })
+
+  it('changeAmount() deve alterar corretamente a quantidade do item', () => {
     const store = {
       items: [item]
     }
@@ -20,12 +24,6 @@ describe('Store mutations', () => {
   })
 
   it('getItems() deve carregar todos os itens na store', () => {
-    const item = {
-      _id: 1,
-      name: 'Sabonetes',
-      amount: 1,
-      expiration: null
-    }
     const store = {
       items: []
     }
@@ -35,12 +33,6 @@ describe('Store mutations', () => {
   })
 
   it('removeItem() deve remover corretamente um item da store', () => {
-    const item = {
-      _id: 1,
-      name: 'Sabonetes',
-      amount: 1,
-      expiration: null
-    }
     const store = {
       items: [item]
     }
