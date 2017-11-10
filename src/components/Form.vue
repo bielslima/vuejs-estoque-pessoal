@@ -37,11 +37,12 @@ export default {
 
   mounted () {
     this.$refs.item.focus()
+    this.item = this.$route.params.item
   },
 
   methods: {
     save () {
-      const payload = {}
+      let payload = {}
 
       payload.name = this.item.name
       payload.amount = parseInt(this.item.amount)
@@ -52,7 +53,15 @@ export default {
       this.item.expiration = ''
 
       this.$refs.item.focus()
-      this.$store.dispatch('saveItemAction', payload)
+
+      if (this.item._id) {
+        payload = { ...payload, _id: this.item._id }
+        delete this.item._id
+        this.$store.dispatch('updateItemAction', payload)
+        this.$router.push({ name: 'list' })
+      } else {
+        this.$store.dispatch('saveItemAction', payload)
+      }
     }
   }
 }

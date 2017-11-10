@@ -35,3 +35,8 @@ export const removeItemAction = ({ commit }, payload) => {
   service.remove(payload)
   commit('removeItem', payload)
 }
+
+export const updateItemAction = ({ commit }, payload) => {
+  service.update(payload)
+  commit('updateItem', payload)
+}

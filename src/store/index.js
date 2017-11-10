@@ -1,12 +1,13 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import { changeAmount, getItems, removeItem } from './mutations'
+import { changeAmount, getItems, removeItem, updateItem } from './mutations'
 import {
   decrementAmountAction,
   getItemsAction,
   incrementAmountAction,
   removeItemAction,
-  saveItemAction
+  saveItemAction,
+  updateItemAction
 } from './actions'
 
 Vue.use(Vuex)
@@ -20,7 +21,8 @@ const store = new Vuex.Store({
   mutations: {
     changeAmount,
     getItems,
-    removeItem
+    removeItem,
+    updateItem
   },
 
   actions: {
@@ -28,7 +30,8 @@ const store = new Vuex.Store({
     saveItemAction,
     incrementAmountAction,
     decrementAmountAction,
-    removeItemAction
+    removeItemAction,
+    updateItemAction
   }
 })
 

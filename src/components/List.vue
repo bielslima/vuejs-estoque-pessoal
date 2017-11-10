@@ -14,7 +14,7 @@
             {{ item.name }}
 
             <div class="data-table__actions">
-              <!--<a class="data-table__edit-row" href="#">Editar</a>-->
+              <a class="data-table__edit-row" href="#" @click.prevent="edit(item)">Editar</a>
               <a class="data-table__remove-row" href="#" @click.prevent="remove(item)">Excluir</a>
             </div>
           </td>
@@ -64,6 +64,10 @@ export default {
     remove (item) {
       this.$store.dispatch('removeItemAction', item)
       this.items = this.$store.state.items
+    },
+
+    edit (item) {
+      this.$router.push({ name: 'form', params: { item } })
     }
   }
 }

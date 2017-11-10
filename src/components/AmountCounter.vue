@@ -32,7 +32,7 @@ export default {
 
   &__value {
     font-size: 3.75rem;
-    min-width: 140px;
+    min-width: 120px;
     border-bottom: 1px solid $light-gray;
     padding: 1rem 0;
   }
