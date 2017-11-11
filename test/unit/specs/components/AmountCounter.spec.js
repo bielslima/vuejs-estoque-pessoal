@@ -17,13 +17,13 @@ describe('AmountCounter.vue', () => {
     const spy = sinon.spy()
     vm.$on('increment', spy)
     vm.increment()
-    expect(spy).to.have.been.called
+    expect(spy).to.have.been.called // eslint-disable-line
   })
 
   it('deve chamar o evento decrement', () => {
     const spy = sinon.spy()
     vm.$on('decrement', spy)
     vm.decrement()
-    expect(spy).to.have.been.called
+    expect(spy).to.have.been.called // eslint-disable-line
   })
 })
