@@ -24,6 +24,24 @@
 <script>
 // import { stringToDate } from '../utils/date'
 
+function clear (item) {
+  item.name = ''
+  item.amount = ''
+  item.expiration = ''
+}
+
+function focus (refs) {
+  refs.item.focus()
+}
+
+function createPayload (_this) {
+  return {
+    name: _this.item.name,
+    amount: parseInt(_this.item.amount),
+    expiration: _this.item.expiration
+  }
+}
+
 export default {
   data () {
     return {
@@ -37,32 +55,24 @@ export default {
 
   mounted () {
     const item = this.$route.params.item
-    this.$refs.item.focus()
+    const isEdit = !!item
 
-    if (item) {
-      this.item = item
-    }
+    if (isEdit) this.item = item
+    focus(this.$refs)
   },
 
   methods: {
     save () {
-      let payload = {}
+      const isEdit = this.item._id
+      let payload = createPayload(this)
 
-      payload.name = this.item.name
-      payload.amount = parseInt(this.item.amount)
-      payload.expiration = this.item.expiration
+      clear(this.item)
+      focus(this.$refs)
 
-      this.item.name = ''
-      this.item.amount = ''
-      this.item.expiration = ''
-
-      this.$refs.item.focus()
-
-      if (this.item._id) {
+      if (isEdit) {
         payload = { ...payload, _id: this.item._id }
-        delete this.item._id
-        this.$store.dispatch('updateItemAction', payload)
         this.$router.push({ name: 'list' })
+        this.$store.dispatch('updateItemAction', payload)
       } else {
         this.$store.dispatch('saveItemAction', payload)
       }
