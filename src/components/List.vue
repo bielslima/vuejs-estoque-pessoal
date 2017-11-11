@@ -1,5 +1,6 @@
 <template>
   <div>
+    <filter-list />
     <table class="data-table">
       <thead class="data-table__header">
         <tr>
@@ -35,10 +36,11 @@
 <script>
 import AmountCounter from './AmountCounter'
 import ExpirationDate from './ExpirationDate'
+import FilterList from './FilterList'
 
 export default {
   components: {
-    AmountCounter, ExpirationDate
+    AmountCounter, ExpirationDate, FilterList
   },
 
   data () {
