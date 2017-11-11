@@ -1,12 +1,12 @@
-
-export const changeAmount = (store, payload) => {
-  store.items = store.items.map(item => {
-    if (item._id === payload._id) {
-      item.amount = payload.amount
-    }
-
+function update (items, payload) {
+  return items.map(item => {
+    if (item._id === payload._id) item = payload
     return item
   })
+}
+
+export const changeAmount = (store, payload) => {
+  store.items = update(store.items, payload)
 }
 
 export const getItems = (store, payload) => {
@@ -18,11 +18,5 @@ export const removeItem = (store, payload) => {
 }
 
 export const updateItem = (store, payload) => {
-  store.items = store.items.map(item => {
-    if (item._id === payload._id) {
-      item = payload
-    }
-
-    return item
-  })
+  store.items = update(store.items, payload)
 }
