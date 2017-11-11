@@ -16,13 +16,7 @@ describe('Store mutations', () => {
     const store = {
       items: [item]
     }
-
-    const newAmount = {
-      _id: 1,
-      name: 'Sabonetes',
-      amount: 5,
-      expiration: null
-    }
+    const newAmount = {...item, amount: 5}
 
     changeAmount(store, newAmount)
     expect(store.items[0].amount).to.equal(5)
@@ -50,10 +44,8 @@ describe('Store mutations', () => {
     const store = {
       items: [item]
     }
-
     const modifiedItem = {
-      _id: 1,
-      name: 'Sabonetes',
+      ...item,
       amount: 5,
       expiration: '20/12/2017'
     }
