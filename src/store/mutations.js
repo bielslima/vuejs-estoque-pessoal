@@ -16,9 +16,11 @@ export const removeItem = (store, payload) => {
 }
 
 export const updateItem = (store, payload) => {
-  store.items.forEach(item => {
+  store.items = store.items.map(item => {
     if (item._id === payload._id) {
       item = payload
     }
+
+    return item
   })
 }

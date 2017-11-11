@@ -1,5 +1,5 @@
 import { expect } from 'chai'
-import { changeAmount, getItems, removeItem } from '@/store/mutations'
+import { changeAmount, getItems, removeItem, updateItem } from '@/store/mutations'
 
 describe('Store mutations', () => {
   let item = {}
@@ -39,5 +39,21 @@ describe('Store mutations', () => {
 
     removeItem(store, item)
     expect(store.items.length).to.equal(0)
+  })
+
+  it('updateItem() deve atualizar corretamente o item', () => {
+    const store = {
+      items: [item]
+    }
+
+    const modifiedItem = {
+      _id: 1,
+      name: 'Sabonetes',
+      amount: 5,
+      expiration: '20/12/2017'
+    }
+
+    updateItem(store, modifiedItem)
+    expect(store.items[0]).to.deep.equal(modifiedItem)
   })
 })

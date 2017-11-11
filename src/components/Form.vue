@@ -36,10 +36,11 @@ export default {
   },
 
   mounted () {
+    const item = this.$route.params.item
     this.$refs.item.focus()
 
-    if (this.$route.params.item) {
-      this.item = this.$route.params.item
+    if (item) {
+      this.item = item
     }
   },
 
