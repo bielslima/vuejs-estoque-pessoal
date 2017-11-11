@@ -17,10 +17,15 @@ describe('Store mutations', () => {
       items: [item]
     }
 
-    ++item.amount
+    const newAmount = {
+      _id: 1,
+      name: 'Sabonetes',
+      amount: 5,
+      expiration: null
+    }
 
-    changeAmount(store, item)
-    expect(store.items[0].amount).to.equal(2)
+    changeAmount(store, newAmount)
+    expect(store.items[0].amount).to.equal(5)
   })
 
   it('getItems() deve carregar todos os itens na store', () => {

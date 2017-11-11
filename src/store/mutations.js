@@ -1,9 +1,11 @@
 
 export const changeAmount = (store, payload) => {
-  store.items.forEach(item => {
+  store.items = store.items.map(item => {
     if (item._id === payload._id) {
       item.amount = payload.amount
     }
+
+    return item
   })
 }
 
