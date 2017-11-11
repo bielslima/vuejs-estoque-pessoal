@@ -37,7 +37,10 @@ export default {
 
   mounted () {
     this.$refs.item.focus()
-    this.item = this.$route.params.item
+
+    if (this.$route.params.item) {
+      this.item = this.$route.params.item
+    }
   },
 
   methods: {
