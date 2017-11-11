@@ -55,15 +55,19 @@ export default {
 
   mounted () {
     const item = this.$route.params.item
-    const isEdit = !!item
+    const { isEdit } = this.$store.state
 
     if (isEdit) this.item = item
     focus(this.$refs)
   },
 
+  beforeDestroy () {
+    this.$store.commit('isEdit', false)
+  },
+
   methods: {
     save () {
-      const isEdit = this.item._id
+      const { isEdit } = this.$store.state
       let payload = createPayload(this)
 
       clear(this.item)

@@ -1,5 +1,11 @@
 import { expect } from 'chai'
-import { changeAmount, getItems, removeItem, updateItem } from '@/store/mutations'
+import {
+  changeAmount,
+  getItems,
+  removeItem,
+  updateItem,
+  isEdit
+} from '@/store/mutations'
 
 describe('Store mutations', () => {
   let item = {}
@@ -52,5 +58,14 @@ describe('Store mutations', () => {
 
     updateItem(store, modifiedItem)
     expect(store.items[0]).to.deep.equal(modifiedItem)
+  })
+
+  it('isEdit() deve atualizar corretamente', () => {
+    const store = {
+      isEdit: false
+    }
+
+    isEdit(store, true)
+    expect(store.isEdit).to.be.true // eslint-disable-line
   })
 })

@@ -67,6 +67,7 @@ export default {
     },
 
     edit (item) {
+      this.$store.commit('isEdit', true)
       this.$router.push({ name: 'form', params: { item } })
     }
   }

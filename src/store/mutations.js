@@ -20,3 +20,7 @@ export const removeItem = (store, payload) => {
 export const updateItem = (store, payload) => {
   store.items = update(store.items, payload)
 }
+
+export const isEdit = (store, payload) => {
+  store.isEdit = payload
+}

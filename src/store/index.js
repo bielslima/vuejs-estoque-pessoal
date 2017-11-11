@@ -1,6 +1,12 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import { changeAmount, getItems, removeItem, updateItem } from './mutations'
+import {
+  changeAmount,
+  getItems,
+  removeItem,
+  updateItem,
+  isEdit
+} from './mutations'
 import {
   decrementAmountAction,
   getItemsAction,
@@ -13,7 +19,8 @@ import {
 Vue.use(Vuex)
 
 const state = {
-  items: []
+  items: [],
+  isEdit: false
 }
 
 const store = new Vuex.Store({
@@ -22,7 +29,8 @@ const store = new Vuex.Store({
     changeAmount,
     getItems,
     removeItem,
-    updateItem
+    updateItem,
+    isEdit
   },
 
   actions: {
