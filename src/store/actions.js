@@ -40,3 +40,12 @@ export const updateItemAction = ({ commit }, payload) => {
   service.update(payload)
   commit('updateItem', payload)
 }
+
+export const filterItemsAction = ({ commit }, payload) => {
+  const items = service.get()
+  const filteredItems = items.filter(item => {
+    const regex = new RegExp(payload, 'gi')
+    return item.name.match(regex) || item.expiration.match(regex)
+  })
+  commit('filterItems', filteredItems)
+}

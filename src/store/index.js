@@ -5,7 +5,8 @@ import {
   getItems,
   removeItem,
   updateItem,
-  isEdit
+  isEdit,
+  filterItems
 } from './mutations'
 import {
   decrementAmountAction,
@@ -13,7 +14,8 @@ import {
   incrementAmountAction,
   removeItemAction,
   saveItemAction,
-  updateItemAction
+  updateItemAction,
+  filterItemsAction
 } from './actions'
 
 Vue.use(Vuex)
@@ -30,7 +32,8 @@ const store = new Vuex.Store({
     getItems,
     removeItem,
     updateItem,
-    isEdit
+    isEdit,
+    filterItems
   },
 
   actions: {
@@ -39,7 +42,8 @@ const store = new Vuex.Store({
     incrementAmountAction,
     decrementAmountAction,
     removeItemAction,
-    updateItemAction
+    updateItemAction,
+    filterItemsAction
   }
 })
 

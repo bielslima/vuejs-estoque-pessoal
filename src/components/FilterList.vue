@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="form" role="form">
-      <input class="form__input" type="text" placeholder="filtre por item, quantidade ou data" v-model="search">
+      <input class="form__input" type="text" placeholder="filtre por item ou data" v-model="search" @keyup="filter">
     </div>
   </div>
 </template>
@@ -11,6 +11,12 @@ export default {
   data () {
     return {
       search: ''
+    }
+  },
+
+  methods: {
+    filter () {
+      this.$store.dispatch('filterItemsAction', this.search)
     }
   }
 }

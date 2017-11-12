@@ -24,3 +24,7 @@ export const updateItem = (store, payload) => {
 export const isEdit = (store, payload) => {
   store.isEdit = payload
 }
+
+export const filterItems = (store, payload) => {
+  store.items = payload
+}

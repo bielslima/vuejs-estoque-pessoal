@@ -40,18 +40,19 @@ import FilterList from './FilterList'
 
 export default {
   components: {
-    AmountCounter, ExpirationDate, FilterList
-  },
-
-  data () {
-    return {
-      items: []
-    }
+    AmountCounter,
+    ExpirationDate,
+    FilterList
   },
 
   created () {
     this.$store.dispatch('getItemsAction')
-    this.items = this.$store.state.items
+  },
+
+  computed: {
+    items () {
+      return this.$store.state.items
+    }
   },
 
   methods: {
@@ -65,7 +66,6 @@ export default {
 
     remove (item) {
       this.$store.dispatch('removeItemAction', item)
-      this.items = this.$store.state.items
     },
 
     edit (item) {
