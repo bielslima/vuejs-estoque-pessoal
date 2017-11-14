@@ -43,9 +43,13 @@ export const updateItemAction = ({ commit }, payload) => {
 
 export const filterItemsAction = ({ commit }, payload) => {
   const items = service.get()
+  const applyMatch = (search, regex) => {
+    if (search) return search.match(regex)
+    return false
+  }
   const filteredItems = items.filter(item => {
     const regex = new RegExp(payload, 'gi')
-    return item.name.match(regex) || item.expiration.match(regex)
+    return applyMatch(item.name, regex) || applyMatch(item.expiration, regex)
   })
   commit('filterItems', filteredItems)
 }
